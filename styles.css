@@ -1,0 +1,81 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url("grad.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.countdown-container {
+    position: absolute;
+    top: 20%; /* Position a bit from the top */
+    left: 50%;
+    transform: translate(-50%, -20%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.countdown-item {
+    text-align: center;
+    padding-right: 50px;
+    text-shadow: 0 0 7px #fdb515; /* Glow */
+    transition: text-shadow 0.3s ease;
+}
+
+.countdown-item:hover {
+    text-shadow: 0 0 10px #fdb515, 0 0 20px #fdb515, 0 0 30px #fdb515; /* Glow more on hover */
+}
+
+/* Numbers */
+.countdown-item span {
+    display: block;
+    font-size: 10rem;
+    font-weight: bold;
+    font-family: minion-pro, serif;
+    font-style: normal;
+    font-weight: 400;
+    color: #fdb515;
+}
+
+/* Labels */
+.countdown-item label {
+    display: block;
+    font-size: 2.5rem;
+    font-family: 'Lato', serif;
+    color:#fdb515;
+}
+
+.info-container {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px; /*gap between columns */
+    font-family: minion-pro, serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Agap between items in column */
+}
+
+.info {
+    font-size: 2rem;
+    color: #fdb515;
+    text-align: center;
+}

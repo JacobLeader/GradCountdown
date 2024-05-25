@@ -8,14 +8,38 @@
 </head>
 <body>
     <div class="countdown-container">
-        <h1>Countdown to Graduation</h1>
-        <div id="countdown">
-            <div><span id="days"></span> Days</div>
-            <div><span id="hours"></span> Hours</div>
-            <div><span id="minutes"></span> Minutes</div>
-            <div><span id="seconds"></span> Seconds</div>
+        <div class="countdown-item">
+            <span id="days"></span>
+            <label>Days</label>
+        </div>
+        <div class="countdown-item">
+            <span id="hours"></span>
+            <label>Hours</label>
+        </div>
+        <div class="countdown-item">
+            <span id="minutes"></span>
+            <label>Minutes</label>
+        </div>
+        <div class="countdown-item">
+            <span id="seconds"></span>
+            <label>Seconds</label>
         </div>
     </div>
+
+    <div class="info-container">
+        <div class="column">
+            <p class="info" id="chapelCount">Chapels Left</p>
+            <p class="info" id="sportCount">Sports Left</p>
+            <p class="info" id="360Count">360s Left</p>
+        </div>
+        <div class="column">
+            <p class="info" id="blockCount">Blocks Left</p>
+            <p class="info" id="interhouseCount">Interhouses Left</p>
+            <p class="info" id="mealCount">Meals Left</p>
+        </div>
+    </div>
+
+
     <script src="script.js"></script>
 </body>
 </html>

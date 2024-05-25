@@ -20,3 +20,29 @@ const countdown = () => {
 };
 
 setInterval(countdown, 1000);
+
+const extraCount = () => {
+    const graduationDate = new Date('June 22, 2024 00:00:00').getTime();
+    const now = new Date().getTime();
+
+    const satCount = countDays(now, graduationDate, 6); // Saturday is represented by 6
+    const wedCount = countDays(now, graduationDate, 3); 
+
+    
+}
+
+
+const countDays = (startDate, endDate, dayOfWeek) => {
+  let count = 0;
+  const oneDay = 24 * 60 * 60 * 1000; // Number of milliseconds in a day
+
+  // Loop through each day between startDate and endDate
+  for (let date = startDate; date <= endDate; date += oneDay) {
+    const day = new Date(date).getDay();
+    if (day === dayOfWeek) {
+      count++;
+    }
+  }
+
+  return count;
+};
