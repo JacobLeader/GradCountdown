@@ -1,9 +1,5 @@
 /* styles.css */
 html, body {
-    /* font-family: Arial, sans-serif; */
-    /* display: flex; */
-    /* justify-content: center;
-    align-items: center; */
     height: 100%;
     margin: 0;
     padding: 0;
@@ -22,7 +18,6 @@ body {
     padding: 0;
 }
 
-
 .section {
     scroll-snap-align: start;
     height: 100vh;
@@ -34,7 +29,22 @@ body {
     padding: 0;
     position: relative;
 }
-
+.info-container {
+    position: absolute;
+    /* top: 50%; */
+    left: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /*gap between columns */
+    font-family: minion-pro, serif;
+    font-style: normal;
+    font-weight: 400;
+    color: white;
+}
+.value {
+    font-size: 70rem;
+}
 .gradSection {
     background-image: url('imgs/grad.jpeg');
     background-size: cover;
@@ -44,6 +54,7 @@ body {
     background-image: url('imgs/chapel.jpeg');
     background-size: cover;
     background-position: center;
+    
 }
 .mealSection {
     background-image: url('imgs/marion.jpeg');
@@ -65,11 +76,12 @@ body {
     background-size: cover; 
     background-position: center;
 }
-.IHSection {
+.ihSection {
     background-image: url('imgs/ih.jpg');
     background-size: cover;
     background-position: center;
 }
+
 
 .countdown-container {
     position: absolute;
@@ -112,37 +124,9 @@ body {
     font-family: 'Lato', serif;
     color:#fdb515;
 }
-.section:nth-child(odd) {
-    background-color: #f0f0f0;
-}
-.section:nth-child(even) {
-    background-color: #c0c0c0;
-}
 
-.info-container {
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 50px; /*gap between columns */
-    font-family: minion-pro, serif;
-    font-style: normal;
-    font-weight: 400;
-}
-
-.section {
-    background-color: red;
-}
 .column {
     display: flex;
     flex-direction: column;
     gap: 10px; /* Agap between items in column */
-}
-
-.info {
-    font-size: 2rem;
-    color: white;
-    text-align: center;
 }

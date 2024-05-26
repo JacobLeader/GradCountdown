@@ -10,53 +10,70 @@
 <body>
     <!-- TODO Hover on element to show total number of ex. minutes left
          TODO Make a page for each thing, where you scroll between each-->
-    <div class="container">
-        <div class="section gradSection">
-            <div class="countdown-container">
-                <div class="countdown-item">
-                    <span id="days"></span>
-                    <label>Days</label>
+         <div class="container">
+            <div class="section gradSection">
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <span id="days"></span>
+                        <label>Days</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours"></span>
+                        <label>Hours</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes"></span>
+                        <label>Minutes</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds"></span>
+                        <label>Seconds</label>
+                    </div>
                 </div>
-                <div class="countdown-item">
-                    <span id="hours"></span>
-                    <label>Hours</label>
+            </div>
+    
+            <div class="section chapelSection">
+                <div class="info-container">
+                    <label>Chapels Left</label>
+                    <span class="value" id="chapelCount"></span>
                 </div>
-                <div class="countdown-item">
-                    <span id="minutes"></span>
-                    <label>Minutes</label>
+            </div>
+            
+            <div class="section sportSection">
+                <div class="info-container">
+                    <label>Sports Left</label>
+                    <span class="value" id="sportCount"></span>
                 </div>
-                <div class="countdown-item">
-                    <span id="seconds"></span>
-                    <label>Seconds</label>
+            </div>
+            
+            <div class="section section360">
+                <div class="info-container">
+                    <label>360s Left</label>
+                    <span class="value" id="360Count"></span>
+                </div>
+            </div>
+            
+            <div class="section blockSection">
+                <div class="info-container">
+                    <label>Blocks Left</label>
+                    <span class="value" id="blockCount"></span>
+                </div>
+            </div>
+            
+            <div class="section ihSection">
+                <div class="info-container">
+                    <label>Interhouses Left</label>
+                    <span class="value" id="IHCount"></span>
+                </div>
+            </div>
+            
+            <div class="section mealSection">
+                <div class="info-container">
+                    <label>Meals Left</label>
+                    <span class="value" id="mealCount"></span>
                 </div>
             </div>
         </div>
-
-        <div class="section chapelSection">
-            <p class="info" id="chapelCount">Chapels Left</p>
-        </div>
-        
-        <div class="section sportSection">
-            <p class="info" id="sportCount">Sports Left</p>
-        </div>
-        
-        <div class="section section360">
-            <p class="info" id="360Count">360s Left</p>
-        </div>
-        
-        <div class="section blockSection">
-            <p class="info" id="blockCount">Blocks Left</p>
-        </div>
-        
-        <div class="section IHSection">
-            <p class="info" id="IHCount">Interhouses Left</p>
-        </div>
-        
-        <div class="section mealSection">
-            <p class="info" id="mealCount">Meals Left</p>
-        </div>
-
-    </div>
 
 
     <script src="script.js"></script>

@@ -38,12 +38,12 @@ const extraCount = () => {
     }
 
     // TODO update as the day goes on
-    document.getElementById("chapelCount").innerHTML = (dayCounts[2] + dayCounts[5]) + " Chapels Left";
-    document.getElementById("sportCount").innerHTML = (dayCounts[1] + dayCounts[3] + dayCounts[5]) + " Sports Left";
-    document.getElementById("360Count").innerHTML = (dayCounts[0] + dayCounts[2]) + " 360s Left";
+    document.getElementById("chapelCount").innerHTML = (dayCounts[2] + dayCounts[5]);
+    document.getElementById("sportCount").innerHTML = (dayCounts[1] + dayCounts[3] + dayCounts[5]);
+    document.getElementById("360Count").innerHTML = (dayCounts[0] + dayCounts[2]);
     let weekDayCount = 0; 
     dayCounts.slice(0,5).forEach( num => { weekDayCount += num;})
-    document.getElementById("blockCount").innerHTML = (weekDayCount * 4) + " Blocks Left";
+    document.getElementById("blockCount").innerHTML = weekDayCount * 4;
 
     let IHCount = 0;
     interhouseDates.forEach(date => {
@@ -51,11 +51,11 @@ const extraCount = () => {
             IHCount++;
         }
     });
-    document.getElementById("IHCount").innerHTML = (IHCount) + " Interhouses Left";
+    document.getElementById("IHCount").innerHTML = IHCount;
 
     const timeLeft = graduationDate - now;
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-    document.getElementById("mealCount").innerHTML = ((days * 3) - dayCounts[6]) + " Meals Left"; // subtract suns cuz there is only 2 meals
+    document.getElementById("mealCount").innerHTML = ((days * 3) - dayCounts[6]); // subtract suns cuz there is only 2 meals
 
 }
 
