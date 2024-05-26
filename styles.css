@@ -28,7 +28,6 @@ body {
     gap: 20px;
     padding: 20px;
 }
-
 .countdown-item {
     text-align: center;
     padding-right: 50px;
@@ -113,6 +112,9 @@ body {
 /*? HOMEPAGE */
 .gradSection {
     background-image: url('imgs/grad.jpeg');
+}
+.gradOverlay {
+    background-image: url('imgs/gradEdit.png');
 }
 
 /*? CHAPEL */
