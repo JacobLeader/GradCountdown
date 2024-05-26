@@ -9,7 +9,8 @@
 </head>
 <body>
     <!-- TODO Hover on element to show total number of ex. minutes left
-         TODO Make a page for each thing, where you scroll between each-->
+         TODO Make a page for each thing, where you scroll between each
+         TODO Make the text blend in with the image, use prespective or overlay parts of the image for 3D-->
          <div class="container">
             <div class="section gradSection">
                 <div class="countdown-container">
@@ -34,43 +35,45 @@
     
             <div class="section chapelSection">
                 <div class="info-container">
-                    <label>Chapels Left</label>
                     <span class="value" id="chapelCount"></span>
+                    <label class="valueLabel">Chapels Left</label>
                 </div>
             </div>
             
             <div class="section sportSection">
+                <img class="overlay sportOverlay"></img>
                 <div class="info-container">
-                    <label>Sports Left</label>
                     <span class="value" id="sportCount"></span>
+                    <label class="valueLabel">Sports Left</label>
                 </div>
             </div>
             
             <div class="section section360">
+                <img class="overlay overlay360"></img>
                 <div class="info-container">
-                    <label>360s Left</label>
                     <span class="value" id="360Count"></span>
+                    <label class="valueLabel">360s Left</label>
                 </div>
             </div>
             
             <div class="section blockSection">
                 <div class="info-container">
-                    <label>Blocks Left</label>
                     <span class="value" id="blockCount"></span>
+                    <label class="valueLabel">Blocks Left</label>
                 </div>
             </div>
             
             <div class="section ihSection">
-                <div class="info-container">
-                    <label>Interhouses Left</label>
+                <div id="ihContainer" class="info-container">
                     <span class="value" id="IHCount"></span>
+                    <label class="valueLabel">Interhouses Left</label>
                 </div>
             </div>
             
             <div class="section mealSection">
                 <div class="info-container">
-                    <label>Meals Left</label>
                     <span class="value" id="mealCount"></span>
+                    <label class="valueLabel">Meals Left</label>
                 </div>
             </div>
         </div>

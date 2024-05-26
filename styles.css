@@ -4,12 +4,10 @@ html, body {
     margin: 0;
     padding: 0;
 }
-
 body {
     display: flex;
     flex-direction: column;
 }
-
 .container {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
@@ -18,71 +16,7 @@ body {
     padding: 0;
 }
 
-.section {
-    scroll-snap-align: start;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2em;
-    margin: 0;
-    padding: 0;
-    position: relative;
-}
-.info-container {
-    position: absolute;
-    /* top: 50%; */
-    left: 20%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px; /*gap between columns */
-    font-family: minion-pro, serif;
-    font-style: normal;
-    font-weight: 400;
-    color: white;
-}
-.value {
-    font-size: 70rem;
-}
-.gradSection {
-    background-image: url('imgs/grad.jpeg');
-    background-size: cover;
-    background-position: center;
-}
-.chapelSection {
-    background-image: url('imgs/chapel.jpeg');
-    background-size: cover;
-    background-position: center;
-    
-}
-.mealSection {
-    background-image: url('imgs/marion.jpeg');
-    background-size: cover;
-    background-position: center;
-}
-.sportSection {
-    background-image: url('imgs/sport.jpeg');
-    background-size: cover;
-    background-position: center;
-}
-.section360 {
-    background-image: url('imgs/360.jpg');
-    background-size: cover;
-    background-position: center;
-}
-.blockSection {
-    background-image: url('imgs/academics.jpg');
-    background-size: cover; 
-    background-position: center;
-}
-.ihSection {
-    background-image: url('imgs/ih.jpg');
-    background-size: cover;
-    background-position: center;
-}
-
-
+/*! COUNTDOWN */
 .countdown-container {
     position: absolute;
     top: 20%; /* Position a bit from the top */
@@ -117,7 +51,7 @@ body {
     color: #fdb515;
 }
 
-/* Labels */
+/* Labels ex. hours */
 .countdown-item label {
     display: block;
     font-size: 2.5rem;
@@ -128,5 +62,116 @@ body {
 .column {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Agap between items in column */
+    gap: 10px; /* gap between items in column */
+}
+
+/*! SECTIONS */
+.section {
+    scroll-snap-align: start;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    font-size: 2em;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.overlay {
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+.info-container {
+    left: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /*gap between columns */
+    font-family: minion-pro, serif;
+    font-style: normal;
+    font-weight: 400;
+    color: white;
+}
+.value {
+    position: relative;
+    font-size: 70rem;
+}
+.valueLabel {
+    position: relative;
+    font-size: 10rem;
+}
+
+/*? HOMEPAGE */
+.gradSection {
+    background-image: url('imgs/grad.jpeg');
+}
+
+/*? CHAPEL */
+.chapelSection {
+    background-image: url('imgs/chapel.jpeg');
+}
+
+/*? MEALS */
+.mealSection {
+    background-image: url('imgs/marion.jpeg');
+}
+
+/*? SPORTS */
+.sportSection {
+    background-image: url('imgs/sport.jpeg');
+}
+.sportOverlay {
+    background-image: url('imgs/sportEdit.png');
+}
+.sportSection .valueLabel {
+    margin-top: 30%;
+    margin-right: 5%;
+}
+
+/*? 360S */
+.section360 {
+    background-image: url('imgs/360.jpg');
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+/* .overlay360 {
+    background-image: url('imgs/360edit.png');
+} */
+.section360 .value, .section360 .valueLabel{
+    color: #fdb515;
+}
+
+/*? BLOCKS */
+.blockSection {
+    background-image: url('imgs/academics.jpg');
+}
+.blockSection .value {
+    font-size: 60rem;
+}
+.blockSection .value, .blockSection .valueLabel {
+    color: #ac8b2f;
+}
+
+/*? INTERHOUSES */
+.ihSection {
+    background-image: url('imgs/ih.jpg');
+}
+.ihSection .value{
+    color: #fdb515;
+    transform: rotateY(20deg) translateZ(50px);
+}
+.ihSection .valueLabel{
+    color: #fdb515;
+    margin-right: 10%;
+    transform: rotateY(20deg) translateZ(50px);
 }
