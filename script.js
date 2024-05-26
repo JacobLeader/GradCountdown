@@ -22,6 +22,7 @@ const countdown = () => {
 
 setInterval(countdown, 1000);
 
+
 const extraCount = () => {
     const graduationDate = new Date('June 22, 2024 00:00:00').getTime();
     const now = new Date().getTime();

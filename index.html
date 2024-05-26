@@ -5,42 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graduation Countdown</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" integrity="sha512-1MjHtS7nNEELhUn4aFO0UwCrbNzGoYQpF74P0BczIGzAaRSeBIvwLsRb+IsjNGJS68dJ1cJ/7CpFwmdUeCNJsw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="countdown-container">
-        <div class="countdown-item">
-            <span id="days"></span>
-            <label>Days</label>
+    <!-- TODO Hover on element to show total number of ex. minutes left
+         TODO Make a page for each thing, where you scroll between each-->
+    <div class="container">
+        <div class="section gradSection">
+            <div class="countdown-container">
+                <div class="countdown-item">
+                    <span id="days"></span>
+                    <label>Days</label>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours"></span>
+                    <label>Hours</label>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes"></span>
+                    <label>Minutes</label>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds"></span>
+                    <label>Seconds</label>
+                </div>
+            </div>
         </div>
-        <div class="countdown-item">
-            <span id="hours"></span>
-            <label>Hours</label>
-        </div>
-        <div class="countdown-item">
-            <span id="minutes"></span>
-            <label>Minutes</label>
-        </div>
-        <div class="countdown-item">
-            <span id="seconds"></span>
-            <label>Seconds</label>
-        </div>
-    </div>
 
-    <div class="info-container">
-        <div class="column">
+        <div class="section chapelSection">
             <p class="info" id="chapelCount">Chapels Left</p>
+        </div>
+        
+        <div class="section sportSection">
             <p class="info" id="sportCount">Sports Left</p>
+        </div>
+        
+        <div class="section section360">
             <p class="info" id="360Count">360s Left</p>
         </div>
-        <div class="column">
+        
+        <div class="section blockSection">
             <p class="info" id="blockCount">Blocks Left</p>
+        </div>
+        
+        <div class="section IHSection">
             <p class="info" id="IHCount">Interhouses Left</p>
+        </div>
+        
+        <div class="section mealSection">
             <p class="info" id="mealCount">Meals Left</p>
         </div>
+
     </div>
 
 
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js" integrity="sha512-owXWFE2sfcd8MR3IuEc/egM1xHuw3vc6BRD3ZPrTfR56ZNV7vqV80nRtJdcyXkObuwt7oxr5y8UYG1zEdCQ/4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 </html>
 
