@@ -1,20 +1,35 @@
 /* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 body {
     display: flex;
     flex-direction: column;
+    overflow-y: hidden;
 }
 .container {
     scroll-snap-type: y mandatory;
+    overflow-x: hidden;
     overflow-y: scroll;
     height: 100vh;
     margin: 0;
     padding: 0;
-    /* perspective: 1000px; */
+    -ms-overflow-style: none;  /* IE and Edge Scrollbar */
+    scrollbar-width: none;  /* Firefox Scrollbar*/
+}
+
+.container::-webkit-scrollbar {
+    display: none; /* Removes Scrollbar */
 }
 
 /*! COUNTDOWN */
