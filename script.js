@@ -1,7 +1,8 @@
 // script.js
+const graduationDate = new Date('June 22, 2024 12:00:00').getTime();
+const classesEndDate = new Date('June 12, 2024 2:00:00')
 const countdown = () => {
     getInfo();
-    const graduationDate = new Date('June 22, 2024 00:00:00').getTime();
     const now = new Date().getTime();
     const timeLeft = graduationDate - now;
 
@@ -23,23 +24,30 @@ const countdown = () => {
 setInterval(countdown, 1000);
 
 const getInfo = () => {
-    const graduationDate = new Date('June 22, 2024 00:00:00').getTime();
     const currentDate = new Date
     const now = currentDate.getTime();
     const isWeekday = currentDate.getDay() >= 1 && currentDate.getDay() <= 5;
 
-    const dayCounts = [];
-    for (let i = 0; i < 7; i++) {
-        dayCounts[i] = countDays(now, graduationDate, i); // Counts occurances of days between today and grad, mon = 1, sun = 7
-    }
+    const dayCounts = getDayCounts(now, graduationDate);
+
     let weekDayCount = 0; 
     dayCounts.slice(0,5).forEach( num => { weekDayCount += num;});
 
+    const classDayCounts = getDayCounts(now, classesEndDate);
+    let classWeekDayCount = 0; // Week days left until classes end
+    classDayCounts.slice(0,5).forEach( num => { classWeekDayCount += num;});
+    
     const blockTimes = [
         { startTime: '8:45', endTime: '9:55' },
         { startTime: '10:00', endTime: '11:15' },
-        { startTime: '11:40', endTime: '13:30' },
+        { startTime: '11:40', endTime: '13:10' },
         { startTime: '14:00', endTime: '15:10' }
+    ];    
+    const blockTimesWed = [
+        { startTime: '9:00', endTime: '9:55'},
+        { startTime: '10:00', endTime: '10:55' },
+        { startTime: '11:15', endTime: '12:10' },
+        { startTime: '12:15', endTime: '13:10' }
     ];    
     const mealTimes = [
         { startTime: '7:45', endTime: '8:45' },
@@ -58,7 +66,7 @@ const getInfo = () => {
     document.getElementById("chapelCount").innerHTML = getChapelsLeft(dayCounts, currentDate.getDay());
     document.getElementById("sportCount").innerHTML = getSportsLeft(dayCounts, currentDate.getDay());
     document.getElementById("360Count").innerHTML = get360Left(dayCounts, currentDate.getDay());
-    document.getElementById("blockCount").innerHTML = getBlocksLeft(weekDayCount, isWeekday, blockTimes);
+    document.getElementById("blockCount").innerHTML = getBlocksLeft(classWeekDayCount, currentDate.getDay(), isWeekday, blockTimes, blockTimesWed);
     document.getElementById("IHCount").innerHTML = getIHLeft(interhouseDates, now);
     document.getElementById("mealCount").innerHTML = getMealsLeft(weekDayCount, dayCounts, mealTimes, sunMealTimes, currentDate.getDay()); 
 }
@@ -67,7 +75,6 @@ const getInfo = () => {
 function getChapelsLeft(dayCounts, currentDay) {
     const wedTime = { startTime: '13:30', endTime: '14:00' };
     const satTime = { startTime: '11:15', endTime: '12:00' };
-    console.log(dayCounts);
     if (currentDay == 2) {
         const chapelLeftInDay = getRemainingInstances(wedTime);
         return chapelLeftInDay + dayCounts[3] + dayCounts[6] - 1;
@@ -75,6 +82,7 @@ function getChapelsLeft(dayCounts, currentDay) {
         const chapelLeftInDay = getRemainingInstances(satTime);
         return chapelLeftInDay + dayCounts[3] + dayCounts[6] - 1;
     }
+    console.log(dayCounts)
     return dayCounts[3] + dayCounts[6];
 }
 
@@ -95,15 +103,18 @@ function get360Left(dayCounts, currentDay) {
 
     // Mon, Wed
     if (currentDay == 1 || currentDay == 3) {
-        return getRemainingInstances(weekDayTime) + dayCounts[1] + dayCounts[3] + dayCounts[5] - 1;
+        return getRemainingInstances(weekDayTime) + dayCounts[1] + dayCounts[3] - 1;
     } 
     return dayCounts[1] + dayCounts[3];
 }
 
-function getBlocksLeft(weekDayCount, isWeekday, blockTimes) {
-    const blocksLeftToday = getRemainingInstances(blockTimes);
+function getBlocksLeft(weekDayCount, currentDay, isWeekday, blockTimes, blockTimesWed) {
+    console.log(blockTimes);
     if (isWeekday) {
-        return blocksLeftToday + ((weekDayCount-1) * 4);
+        if (currentDay == 3) {
+            return getRemainingInstances(blockTimesWed) + ((weekDayCount-1) * 4);
+        }
+        return getRemainingInstances(blockTimes) + ((weekDayCount-1) * 4);
     } else {
         return weekDayCount * 4;
     }
@@ -151,6 +162,15 @@ const countDays = (startDate, endDate, dayOfWeek) => {
 function getCurrentTimeInMinutes() {
     const now = new Date();
     return now.getHours() * 60 + now.getMinutes();
+}
+
+function getDayCounts(now, endDate) {
+    let dayCounts = [];
+    for (let i = 0; i < 7; i++) {
+        dayCounts[i] = countDays(now, endDate, i); // Counts occurances of days between today and grad, mon = 1, sun = 7
+    }
+
+    return dayCounts;
 }
 
 // Gets how many more times something will occur in the day
