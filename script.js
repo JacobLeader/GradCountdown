@@ -25,7 +25,6 @@ const countdown = () => {
 };
 
 function setCountdownTotals(timeLeft) {
-    console.log(timeLeft / (1000 * 60 * 60))
     document.getElementById('totalDays').innerHTML = Math.floor(timeLeft / (1000 * 60 * 60 * 24)) + " Days Left";
     document.getElementById('totalHours').innerHTML = Math.floor(timeLeft / (1000 * 60 * 60)) + " Hours Left";
     document.getElementById('totalMinutes').innerHTML = Math.floor(timeLeft / (1000 * 60)) + " Minutes Left";
@@ -69,12 +68,15 @@ const getInfo = () => {
         { startTime: '9:00', endTime: '12:00' },
         { startTime: '17:00', endTime: '17:45' }
     ];    
+    extraChapelTimes = [
+        new Date('June 20, 2024 19:30:00')
+    ];
     interhouseDates = [
         new Date('June 4, 2024 12:00:00'), // Soccer
         new Date('June 8, 2024 12:00:00')  // Rugby
     ]; 
 
-    document.getElementById("chapelCount").innerHTML = getChapelsLeft(dayCounts, currentDate.getDay());
+    document.getElementById("chapelCount").innerHTML = getChapelsLeft(dayCounts, currentDate.getDay(), now);
     document.getElementById("sportCount").innerHTML = getSportsLeft(dayCounts, currentDate.getDay());
     document.getElementById("360Count").innerHTML = get360Left(dayCounts, currentDate.getDay());
     document.getElementById("blockCount").innerHTML = getBlocksLeft(classWeekDayCount, currentDate.getDay(), isWeekday, blockTimes, blockTimesWed);
@@ -83,18 +85,23 @@ const getInfo = () => {
 }
 
 //! Day starts on Sunday: Sun = 0, Mon = 1, Tue = 2, Wed = 3, Thu = 4, Fri = 5, Sat = 6
-function getChapelsLeft(dayCounts, currentDay) {
+function getChapelsLeft(dayCounts, currentDay, now) {
     const wedTime = { startTime: '13:30', endTime: '14:00' };
     const satTime = { startTime: '11:15', endTime: '12:00' };
+    const extraChapel = new Date('June 20, 2024 19:30:00');
+
+    let extraChapelCount = 0;
+    if (extraChapel.getTime() > now) {
+        extraChapelCount++;
+    }
     if (currentDay == 2) {
         const chapelLeftInDay = getRemainingInstances(wedTime);
-        return chapelLeftInDay + dayCounts[3] + dayCounts[6] - 1;
+        return extraChapelCount + chapelLeftInDay + dayCounts[3] + dayCounts[6] - 1;
     } else if (currentDay == 5) {
         const chapelLeftInDay = getRemainingInstances(satTime);
-        return chapelLeftInDay + dayCounts[3] + dayCounts[6] - 1;
+        return extraChapelCount + chapelLeftInDay + dayCounts[3] + dayCounts[6] - 1;
     }
-    console.log(dayCounts)
-    return dayCounts[3] + dayCounts[6];
+    return extraChapelCount + dayCounts[3] + dayCounts[6];
 }
 
 function getSportsLeft(dayCounts, currentDay) {
@@ -120,7 +127,6 @@ function get360Left(dayCounts, currentDay) {
 }
 
 function getBlocksLeft(weekDayCount, currentDay, isWeekday, blockTimes, blockTimesWed) {
-    console.log(blockTimes);
     if (isWeekday) {
         if (currentDay == 3) {
             return getRemainingInstances(blockTimesWed) + ((weekDayCount-1) * 4);
@@ -191,20 +197,20 @@ function getRemainingInstances(times) {
 
     if (times.length > 1){
         times.forEach(block => {
-            const [startHour, startMinute] = block.startTime.split(':').map(Number);
+            const [endHour, endMinute] = block.endTime.split(':').map(Number);
             // convert start time to mins since midnight
-            const startTimeInMinutes = (startHour * 60) + startMinute;
+            const endTimeInMinutes = (endHour * 60) + endMinute;
     
-            if (currentTime < startTimeInMinutes) {
+            if (currentTime < endTimeInMinutes) {
                 remainingInstances++;
             }
         });
     }
     else {
-        const [startHour, startMinute] = times.startTime.split(':').map(Number);
-        const startTimeInMinutes = (startHour * 60) + startMinute;
+        const [endHour, endMinute] = times.endTime.split(':').map(Number);
+        const endTimeInMinutes = (endHour * 60) + endMinute;
 
-        if (currentTime < startTimeInMinutes) {
+        if (currentTime < endTimeInMinutes) {
             remainingInstances++;
         }
     }
