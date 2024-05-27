@@ -1,10 +1,13 @@
 // script.js
 const graduationDate = new Date('June 22, 2024 12:00:00').getTime();
-const classesEndDate = new Date('June 12, 2024 2:00:00')
+const classesEndDate = new Date('June 12, 2024 2:00:00');
+
 const countdown = () => {
     getInfo();
     const now = new Date().getTime();
     const timeLeft = graduationDate - now;
+    setCountdownTotals(timeLeft);
+
 
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -20,6 +23,14 @@ const countdown = () => {
         document.getElementById('countdown').innerHTML = "Congratulations, Graduates!";
     }
 };
+
+function setCountdownTotals(timeLeft) {
+    console.log(timeLeft / (1000 * 60 * 60))
+    document.getElementById('totalDays').innerHTML = Math.floor(timeLeft / (1000 * 60 * 60 * 24)) + " Days Left";
+    document.getElementById('totalHours').innerHTML = Math.floor(timeLeft / (1000 * 60 * 60)) + " Hours Left";
+    document.getElementById('totalMinutes').innerHTML = Math.floor(timeLeft / (1000 * 60)) + " Minutes Left";
+    document.getElementById('totalSeconds').innerHTML = Math.floor(timeLeft / (1000)) + " Seconds Left";
+}
 
 setInterval(countdown, 1000);
 

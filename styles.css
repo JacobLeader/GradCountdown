@@ -14,6 +14,7 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
+    /* perspective: 1000px; */
 }
 
 /*! COUNTDOWN */
@@ -42,7 +43,7 @@ body {
 /* Numbers */
 .countdown-item span {
     display: block;
-    font-size: 10rem;
+    font-size: 12rem;
     font-weight: bold;
     font-family: minion-pro, serif;
     font-style: normal;
@@ -56,6 +57,16 @@ body {
     font-size: 2.5rem;
     font-family: 'Lato', serif;
     color:#fdb515;
+}
+.totalCountdownContainer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 4rem;
+    font-family: 'Lato', serif;
+    font-size: 2.7rem;
+    color:#fdb515;
+    margin-top: 46%;
+    text-shadow: 0 0 10px #ac8b2f, 0 0 20px #ac8b2f, 0 0 25px #ac8b2f;
 }
 
 .column {
@@ -99,6 +110,7 @@ body {
     font-style: normal;
     font-weight: 400;
     color: white;
+    perspective: 1000px;
 }
 .value {
     position: relative;
@@ -121,7 +133,10 @@ body {
 .chapelSection {
     background-image: url('imgs/chapel.jpeg');
 }
-
+.chapelSection .value, .chapelSection .valueLabel{
+    /* margin-bottom: 20% */
+    /* transform-origin: left; */
+}
 /*? MEALS */
 .mealSection {
     background-image: url('imgs/marion.jpeg');
@@ -137,6 +152,11 @@ body {
 .sportSection .valueLabel {
     margin-top: 30%;
     margin-right: 5%;
+}
+.sportSection .value{
+    transform: rotateY('50deg');
+    color: #ac8b2f;
+
 }
 
 /*? 360S */
@@ -169,11 +189,12 @@ body {
     background-image: url('imgs/ih.jpg');
 }
 .ihSection .value{
+    font-size: 62rem;
+    margin-left: 10%;
     color: #fdb515;
-    transform: rotateY(20deg) translateZ(50px);
+    transform: rotateY(30deg) translateZ(100px);
 }
 .ihSection .valueLabel{
     color: #fdb515;
-    margin-right: 10%;
-    transform: rotateY(20deg) translateZ(50px);
+    transform: rotateY(30deg) translateZ(-120px);
 }

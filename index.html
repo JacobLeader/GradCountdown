@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graduation Countdown</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" integrity="sha512-1MjHtS7nNEELhUn4aFO0UwCrbNzGoYQpF74P0BczIGzAaRSeBIvwLsRb+IsjNGJS68dJ1cJ/7CpFwmdUeCNJsw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <!-- TODO Hover on element to show total number of ex. minutes left
-         TODO Make a page for each thing, where you scroll between each
+    <!-- TODO Button or moving arrow prompting user to scroll
+         TODO Buy me Dukes 
          TODO Make the text blend in with the image, use prespective or overlay parts of the image for 3D-->
          <div class="container">
             <div class="section gradSection">
+                <img class="overlay gradOverlay"></img>
                 <div class="countdown-container">
                     <div class="countdown-item">
                         <span id="days"></span>
@@ -29,6 +29,21 @@
                     <div class="countdown-item">
                         <span id="seconds"></span>
                         <label>Seconds</label>
+                    </div>
+                </div>
+                <div class="totalCountdownContainer">
+                    <div class="totalCountdownItem">
+                        <span id="totalDays"></span>
+                        <!-- <label>Days</label> -->
+                    </div>
+                    <div class="totalCountdownItem">
+                        <span id="totalHours"></span>
+                    </div>
+                    <div class="totalCountdownItem">
+                        <span id="totalMinutes"></span>
+                    </div>
+                    <div class="totalCountdownItem">
+                        <span id="totalSeconds"></span>
                     </div>
                 </div>
             </div>
@@ -80,9 +95,5 @@
 
 
     <script src="script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js" integrity="sha512-owXWFE2sfcd8MR3IuEc/egM1xHuw3vc6BRD3ZPrTfR56ZNV7vqV80nRtJdcyXkObuwt7oxr5y8UYG1zEdCQ/4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
 </body>
 </html>
-
-<!-- Buy me a Dukes -->
