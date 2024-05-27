@@ -55,10 +55,6 @@ const getInfo = () => {
         new Date('June 8, 2024 12:00:00')  // Rugby
     ]; 
 
-
-
-
-    // TODO update as the day goes on
     document.getElementById("chapelCount").innerHTML = getChapelsLeft(dayCounts, currentDate.getDay());
     document.getElementById("sportCount").innerHTML = getSportsLeft(dayCounts, currentDate.getDay());
     document.getElementById("360Count").innerHTML = get360Left(dayCounts, currentDate.getDay());
@@ -96,7 +92,6 @@ function getSportsLeft(dayCounts, currentDay) {
 
 function get360Left(dayCounts, currentDay) {
     const weekDayTime = { startTime: '15:30', endTime: '17:45' };
-    const weekEndTime = { startTime: '13:00', endTime: '16:00' };
 
     // Mon, Wed
     if (currentDay == 1 || currentDay == 3) {
@@ -159,22 +154,30 @@ function getCurrentTimeInMinutes() {
 }
 
 // Gets how many more times something will occur in the day
-function getRemainingInstances(times) {
-    const currentDate = new Date();
-    
+function getRemainingInstances(times) {    
     const currentTime = getCurrentTimeInMinutes();
     let remainingInstances = 0;
 
-    times.forEach(block => {
-        const [startHour, startMinute] = block.startTime.split(':').map(Number);
-
-        // convert start time to mins since midnight
+    if (times.length > 1){
+        times.forEach(block => {
+            const [startHour, startMinute] = block.startTime.split(':').map(Number);
+            // convert start time to mins since midnight
+            const startTimeInMinutes = (startHour * 60) + startMinute;
+    
+            if (currentTime < startTimeInMinutes) {
+                remainingInstances++;
+            }
+        });
+    }
+    else {
+        const [startHour, startMinute] = times.startTime.split(':').map(Number);
         const startTimeInMinutes = (startHour * 60) + startMinute;
 
         if (currentTime < startTimeInMinutes) {
             remainingInstances++;
         }
-    });
+    }
+    
 
     return remainingInstances;
 }
