@@ -148,9 +148,26 @@ body {
 .chapelSection {
     background-image: url('imgs/chapel.jpeg');
 }
-.chapelSection .value, .chapelSection .valueLabel{
-    /* margin-bottom: 20% */
-    /* transform-origin: left; */
+.chapelSection .info-container {
+    position: absolute;
+    perspective: 1000px;
+}
+.chapelSection .value, .chapelSection .valueLabel {
+    color: #fdb515;
+    text-shadow:
+        0 0 10px rgba(253, 181, 21, 0.5),
+        0 0 20px rgba(253, 181, 21, 0.4),
+        0 0 30px rgba(253, 181, 21, 0.3),
+        0 0 40px rgba(253, 181, 21, 0.2),
+        0 0 50px rgba(253, 181, 21, 0.1),
+        0 0 60px rgba(253, 181, 21, 0.2);
+}
+.chapelSection .value {
+    right: 15%;
+}
+.chapelSection .valueLabel {
+    font-size: 15rem;
+    right: 15%;
 }
 /*? MEALS */
 .mealSection {
@@ -171,7 +188,6 @@ body {
 .sportSection .value{
     transform: rotateY('50deg');
     color: #ac8b2f;
-
 }
 
 /*? 360S */
