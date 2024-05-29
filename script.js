@@ -1,6 +1,7 @@
 // script.js
 const graduationDate = new Date('June 22, 2024 12:00:00').getTime();
 const classesEndDate = new Date('June 12, 2024 2:00:00');
+const sportEndDate = new Date('June 6, 2024 23:59:59');
 
 const countdown = () => {
     getInfo();
@@ -47,6 +48,8 @@ const getInfo = () => {
     let classWeekDayCount = 0; // Week days left until classes end
     classDayCounts.slice(0,5).forEach( num => { classWeekDayCount += num;});
     
+    const sportDayCounts = getDayCounts(now, sportEndDate);
+
     const blockTimes = [
         { startTime: '8:45', endTime: '9:55' },
         { startTime: '10:00', endTime: '11:15' },
@@ -75,9 +78,9 @@ const getInfo = () => {
         new Date('June 4, 2024 12:00:00'), // Soccer
         new Date('June 8, 2024 12:00:00')  // Rugby
     ]; 
-
+    
     document.getElementById("chapelCount").innerHTML = getChapelsLeft(dayCounts, currentDate.getDay(), now);
-    document.getElementById("sportCount").innerHTML = getSportsLeft(dayCounts, currentDate.getDay());
+    document.getElementById("sportCount").innerHTML = getSportsLeft(sportDayCounts, currentDate.getDay());
     document.getElementById("360Count").innerHTML = get360Left(dayCounts, currentDate.getDay());
     document.getElementById("blockCount").innerHTML = getBlocksLeft(classWeekDayCount, currentDate.getDay(), isWeekday, blockTimes, blockTimesWed);
     document.getElementById("IHCount").innerHTML = getIHLeft(interhouseDates, now);
@@ -104,16 +107,16 @@ function getChapelsLeft(dayCounts, currentDay, now) {
     return extraChapelCount + dayCounts[3] + dayCounts[6];
 }
 
-function getSportsLeft(dayCounts, currentDay) {
+function getSportsLeft(sportDayCounts, currentDay) {
     const weekDayTime = { startTime: '15:30', endTime: '17:45' };
     const weekEndTime = { startTime: '13:00', endTime: '16:00' };
 
     if (currentDay == 2 || currentDay == 4) { // Tue, Thur
-        return getRemainingInstances(weekDayTime) + dayCounts[1] + dayCounts[3] + dayCounts[5] - 1;
+        return getRemainingInstances(weekDayTime) + sportDayCounts[1] + sportDayCounts[3] + sportDayCounts[5] - 1;
     } else if (currentDay == 6) { // Saturday
-        return getRemainingInstances(weekEndTime) + dayCounts[1] + dayCounts[3] + dayCounts[5] - 1;
+        return getRemainingInstances(weekEndTime) + sportDayCounts[1] + sportDayCounts[3] + sportDayCounts[5] - 1;
     }
-    return dayCounts[1] + dayCounts[3] + dayCounts[5];
+    return sportDayCounts[1] + sportDayCounts[3] + sportDayCounts[5];
 }
 
 function get360Left(dayCounts, currentDay) {
