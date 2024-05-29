@@ -1,7 +1,7 @@
 // script.js
 const graduationDate = new Date('June 22, 2024 12:00:00').getTime();
 const classesEndDate = new Date('June 12, 2024 2:00:00');
-const sportEndDate = new Date('June 6, 2024 23:59:59');
+const sportAnd360EndDate = new Date('June 6, 2024 23:59:59');
 
 const countdown = () => {
     getInfo();
@@ -48,7 +48,7 @@ const getInfo = () => {
     let classWeekDayCount = 0; // Week days left until classes end
     classDayCounts.slice(0,5).forEach( num => { classWeekDayCount += num;});
     
-    const sportDayCounts = getDayCounts(now, sportEndDate);
+    const sportAnd360DayCounts = getDayCounts(now, sportAnd360EndDate);
 
     const blockTimes = [
         { startTime: '8:45', endTime: '9:55' },
@@ -80,8 +80,8 @@ const getInfo = () => {
     ]; 
     
     document.getElementById("chapelCount").innerHTML = getChapelsLeft(dayCounts, currentDate.getDay(), now);
-    document.getElementById("sportCount").innerHTML = getSportsLeft(sportDayCounts, currentDate.getDay());
-    document.getElementById("360Count").innerHTML = get360Left(dayCounts, currentDate.getDay());
+    document.getElementById("sportCount").innerHTML = getSportsLeft(sportAnd360DayCounts, currentDate.getDay());
+    document.getElementById("360Count").innerHTML = get360Left(sportAnd360DayCounts, currentDate.getDay());
     document.getElementById("blockCount").innerHTML = getBlocksLeft(classWeekDayCount, currentDate.getDay(), isWeekday, blockTimes, blockTimesWed);
     document.getElementById("IHCount").innerHTML = getIHLeft(interhouseDates, now);
     document.getElementById("mealCount").innerHTML = getMealsLeft(weekDayCount, dayCounts, mealTimes, sunMealTimes, currentDate.getDay()); 
@@ -119,14 +119,14 @@ function getSportsLeft(sportDayCounts, currentDay) {
     return sportDayCounts[1] + sportDayCounts[3] + sportDayCounts[5];
 }
 
-function get360Left(dayCounts, currentDay) {
+function get360Left(dayCounts360, currentDay) {
     const weekDayTime = { startTime: '15:30', endTime: '17:45' };
 
     // Mon, Wed
     if (currentDay == 1 || currentDay == 3) {
-        return getRemainingInstances(weekDayTime) + dayCounts[1] + dayCounts[3] - 1;
+        return getRemainingInstances(weekDayTime) + dayCounts360[1] + dayCounts360[3] - 1;
     } 
-    return dayCounts[1] + dayCounts[3];
+    return dayCounts360[1] + dayCounts360[3];
 }
 
 function getBlocksLeft(weekDayCount, currentDay, isWeekday, blockTimes, blockTimesWed) {
