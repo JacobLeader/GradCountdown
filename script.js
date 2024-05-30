@@ -1,16 +1,26 @@
 // script.js
+
+
 const graduationDate = new Date('June 22, 2024 12:00:00').getTime(); // for countdown
+// const graduationDate = new Date('May 3, 2024 12:00:00').getTime(); // Use for testing
 const classesEndDate = new Date('June 12, 2024 23:59:59');
 const sportEndDate = new Date('June 6, 2024 23:59:59');
 const endDate360 = new Date('June 3, 2024 23:59:59');
+let hasScrolled = false;
 
- // TODO: last 360 is on the 3rd
 const countdown = () => {
-    getInfo();
+
+    
+    setCountdownValues();
     const now = new Date().getTime();
     const timeLeft = graduationDate - now;
     setCountdownTotals(timeLeft);
 
+    if (timeLeft < 0) {
+        // TODO FIX
+        document.querySelector('gradSection').innerHTML = "Congratulations, Graduates!";
+        console.log("DONE");
+    }
 
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -21,10 +31,6 @@ const countdown = () => {
     document.getElementById('hours').innerText = hours;
     document.getElementById('minutes').innerText = minutes;
     document.getElementById('seconds').innerText = seconds;
-
-    if (timeLeft < 0) {
-        document.getElementById('countdown').innerHTML = "Congratulations, Graduates!";
-    }
 };
 
 function setCountdownTotals(timeLeft) {
@@ -34,9 +40,21 @@ function setCountdownTotals(timeLeft) {
     document.getElementById('totalSeconds').innerHTML = Math.floor(timeLeft / (1000)) + " Seconds Left";
 }
 
+let lastScrollTop = 0;
+const actionElement = document.getElementById('scrollArrow');
+
+document.addEventListener("wheel", function(event) {
+    const actionElement = document.getElementById('scrollArrow');
+    if (!hasScrolled) {
+        actionElement.classList.add('hidden');
+        hasScrolled = true;
+    }
+});
+
+
 setInterval(countdown, 1000);
 
-const getInfo = () => {
+const setCountdownValues = () => {
     // const currentDate = new Date('June 12, 2024 18:00:00') // Testing
     const currentDate = new Date();
     const now = currentDate.getTime();
@@ -81,7 +99,7 @@ const getInfo = () => {
     ]; 
     
     document.getElementById("chapelCount").innerHTML = getChapelsLeft(dayCounts, currentDate.getDay(), now);
-    document.getElementById("sportCount").innerHTML = getSportsLeft(sportDayCounts, currentDate.getDay());
+    document.getElementById("sportCount").innerHTML = getSportsLeft(sportDayCounts, currentDate.getDay(), now);
     document.getElementById("360Count").innerHTML = get360Left(dayCounts360, currentDate.getDay());
     document.getElementById("blockCount").innerHTML = getBlocksLeft(classWeekDayCount, currentDate.getDay(), isWeekday, blockTimes, blockTimesWed);
     document.getElementById("IHCount").innerHTML = getIHLeft(interhouseDates, now);
@@ -97,7 +115,6 @@ function getChapelsLeft(dayCounts, currentDay, now) {
     const noChapelDate = new Date('June 1, 2024 11:15:00');
 
     let extraChapelCount = 0; // starting at -1 cause there is no chapel on saturday june 1
-    console.log(dayCounts)
     if (noChapelDate.getTime() > now) {
         extraChapelCount--;
     }
@@ -114,14 +131,22 @@ function getChapelsLeft(dayCounts, currentDay, now) {
     return extraChapelCount + dayCounts[3] + dayCounts[6];
 }
 
-function getSportsLeft(sportDayCounts, currentDay) {
+function getSportsLeft(sportDayCounts, currentDay, now) {
+    //! No Sport on Tue, June 4
+
     const weekDayTime = { startTime: '15:30', endTime: '17:45' };
     const weekEndTime = { startTime: '13:00', endTime: '16:00' };
+    const noSportDate = new Date('June 3, 2024, 4:15');
+
+    let sportCountChanger = 0;
+    if (noSportDate.getTime() > now) {
+        sportCountChanger--;
+    }
 
     if (currentDay == 2 || currentDay == 4) { // Tue, Thur
-        return getRemainingInstances(weekDayTime) + sportDayCounts[1] + sportDayCounts[3] + sportDayCounts[5] - 1;
+        return sportCountChanger + getRemainingInstances(weekDayTime) + sportDayCounts[2] + sportDayCounts[4] + sportDayCounts[6] - 1;
     } else if (currentDay == 6) { // Saturday
-        return getRemainingInstances(weekEndTime) + sportDayCounts[1] + sportDayCounts[3] + sportDayCounts[5] - 1;
+        return sportCountChanger + getRemainingInstances(weekEndTime) + sportDayCounts[2] + sportDayCounts[4] + sportDayCounts[6] - 1;
     }
     return sportDayCounts[1] + sportDayCounts[3] + sportDayCounts[5];
 }
@@ -159,14 +184,9 @@ function getIHLeft(interhouseDates, now) {
 
 function getMealsLeft(weekDayCount, dayCounts, mealTimes, sunMealTimes, currentDay) {
     let mealsLeft = 0;
-    console.log(weekDayCount + " weekDayCount")
     const nonSundays = weekDayCount + dayCounts[6];
     if (currentDay != 0) { // Not a sunday
         const mealsLeftToday = getRemainingInstances(mealTimes);
-        console.log(mealsLeftToday + " left today")
-        console.log(nonSundays + " non sundays")
-        console.log(dayCounts[3] + " weds")
-        console.log(dayCounts[0] + " sundays")
         mealsLeft = mealsLeftToday + ((nonSundays - 1) * 3) + (dayCounts[0] * 2) + 1; // 2 meals on sundays, assume only breakfast on closing day
     }
     else { // Is a Sunday
@@ -235,5 +255,5 @@ function getRemainingInstances(times) {
 }
 
 window.onload = function() {
-    getInfo();
+    setCountdownValues();
 };
