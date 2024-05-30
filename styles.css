@@ -159,11 +159,11 @@ body {
 
 /*? HOMEPAGE */
 .gradSection {
-    /* background-image: url('imgs/grad.webp'); */
+    background-image: url('imgs/grad.webp');
     /* background-image: url('imgs/JonahPic.JPG'); */
 }
 .gradOverlay {
-    /* background-image: url('imgs/gradEdit.webp'); */
+    background-image: url('imgs/gradEdit.webp');
 }
 /*? CHAPEL */
 .chapelSection {
