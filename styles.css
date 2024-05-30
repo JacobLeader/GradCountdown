@@ -176,7 +176,7 @@ body {
 
 .mealSection .value, .mealSection .valueLabel {
     position: absolute;
-    margin-bottom: 20%;
+    margin-bottom: 25%;
     color: #ac8b2f;
 }
 
@@ -192,9 +192,14 @@ body {
     text-align: center;
     white-space: nowrap;
     font-size: 12rem;
-    top: 1.1em;
+    top: 1.05em;
 }
-
+.mealSection .credits {
+    position: absolute;
+    white-space: nowrap;
+    transform: translate(60%, 1070%);
+    color: white;
+}
 /*? SPORTS */
 .sportSection {
     background-image: url('imgs/sport.jpeg');
