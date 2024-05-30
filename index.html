@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Graduation Countdown</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="imgs/JonahPic.JPG" as="image">
     <link rel="preload" href="imgs/grad.webp" as="image">
     <link rel="preload" href="imgs/gradEdit.webp" as="image">
     <link rel="preload" href="imgs/chapel.webp" as="image">
@@ -18,10 +19,12 @@
 </head>
 <body>
     <!-- TODO Button or moving arrow prompting user to scroll
-         TODO Buy me Dukes 
-         TODO Make the text blend in with the image, use prespective or overlay parts of the image for 3D-->
+         TODO Buy me Dukes -->
          <div class="container">
             <div class="section gradSection">
+                <video autoplay muted loop id="myVideo">
+                    <source src="imgs/airbandVideo.mp4" type="video/mp4">
+                </video>
                 <img class="overlay gradOverlay"></img>
                 <div class="countdown-container">
                     <div class="countdown-item">
@@ -41,6 +44,10 @@
                         <label>Seconds</label>
                     </div>
                 </div>
+
+                <!-- <img src="/imgs/arrowPrompt.gif" class="arrowPrompt"/> -->
+
+
                 <div class="totalCountdownContainer">
                     <div class="totalCountdownItem">
                         <span id="totalDays"></span>
