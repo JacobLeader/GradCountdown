@@ -137,15 +137,15 @@ body {
 
 /*? HOMEPAGE */
 .gradSection {
-    background-image: url('imgs/grad.jpeg');
+    background-image: url('imgs/grad.webp');
 }
 .gradOverlay {
-    background-image: url('imgs/gradEdit.png');
+    background-image: url('imgs/gradEdit.webp');
 }
 
 /*? CHAPEL */
 .chapelSection {
-    background-image: url('imgs/chapel.jpeg');
+    background-image: url('imgs/chapel.webp');
 }
 .chapelSection .info-container {
     margin-left: 3%;
@@ -166,7 +166,7 @@ body {
 
 /*? MEALS */
 .mealSection {
-    background-image: url('imgs/marion.jpeg');
+    background-image: url('imgs/marion.webp');
 }
 .mealSection .info-container {
     display: flex;
@@ -202,10 +202,10 @@ body {
 }
 /*? SPORTS */
 .sportSection {
-    background-image: url('imgs/sport.jpeg');
+    background-image: url('imgs/sport.webp');
 }
 .sportOverlay {
-    background-image: url('imgs/sportEdit.png');
+    background-image: url('imgs/sportEdit.webp');
 }
 .sportSection .valueLabel {
     color: #ac8b2f;
@@ -227,7 +227,7 @@ body {
 
 /*? 360S */
 .section360 {
-    background-image: url('imgs/360.jpg');
+    background-image: url('imgs/360.webp');
 }
 /* .overlay360 {
     background-image: url('imgs/360edit.png');
@@ -244,10 +244,10 @@ body {
 
 /*? BLOCKS */
 .blockSection {
-    background-image: url('imgs/academics.jpg');
+    background-image: url('imgs/academics.webp');
 }
 .blockSection .overlayZach360 {
-    background-image: url('imgs/academicsZachEdit.png');
+    background-image: url('imgs/academicsZachEdit.webp');
 }
 .blockSection .value {
     font-size: 53rem;
@@ -257,9 +257,6 @@ body {
     font-size: 10rem;
     white-space: nowrap;
     transform: translate(51%, -170%)
-    /* margin-bottom: 35%; */
-    /* bottom: 20%; */
-    /* left: 20%; */
 }
 .blockSection .value, .blockSection .valueLabel {
     position: absolute;
@@ -268,7 +265,7 @@ body {
 
 /*? INTERHOUSES */
 .ihSection {
-    background-image: url('imgs/ih.jpg');
+    background-image: url('imgs/ih.webp');
 }
 .ihSection .value{
     font-size: 62rem;
