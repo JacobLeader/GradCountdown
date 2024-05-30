@@ -20,14 +20,16 @@ body {
 .container {
     scroll-snap-type: y mandatory;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100vh;
     margin: 0;
     padding: 0;
     -ms-overflow-style: none;  /* IE and Edge Scrollbar */
     scrollbar-width: none;  /* Firefox Scrollbar*/
 }
-
+.section {
+    overflow-y: hidden;;
+}
 .container::-webkit-scrollbar {
     display: none; /* Removes Scrollbar */
 }
@@ -279,6 +281,9 @@ body {
 }
 
 /* Responsive styles */
+img { /* to avoid img overflow */
+    max-width: 100%;
+}
 @media (max-width: 1200px) {
     .countdown-item span {
         font-size: 10rem;
