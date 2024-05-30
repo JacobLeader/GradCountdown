@@ -116,11 +116,10 @@ body {
     pointer-events: none;
 }
 .info-container {
-    left: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px; /*gap between columns */
+    gap: 50px; /* gap between value and label */
     font-family: minion-pro, serif;
     font-style: normal;
     font-weight: 400;
@@ -149,8 +148,7 @@ body {
     background-image: url('imgs/chapel.jpeg');
 }
 .chapelSection .info-container {
-    position: absolute;
-    perspective: 1000px;
+    margin-left: 3%;
 }
 .chapelSection .value, .chapelSection .valueLabel {
     color: #fdb515;
@@ -162,16 +160,39 @@ body {
         0 0 50px rgba(253, 181, 21, 0.1),
         0 0 60px rgba(253, 181, 21, 0.2);
 }
-.chapelSection .value {
-    right: 15%;
-}
 .chapelSection .valueLabel {
     font-size: 15rem;
-    right: 15%;
 }
+
 /*? MEALS */
 .mealSection {
     background-image: url('imgs/marion.jpeg');
+}
+.mealSection .info-container {
+    display: flex;
+    flex-direction: column;
+    color: #ac8b2f;
+}
+
+.mealSection .value, .mealSection .valueLabel {
+    position: absolute;
+    margin-bottom: 20%;
+    color: #ac8b2f;
+}
+
+.mealSection .value {
+    color: #fdb515;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
+    font-size: 65rem; 
+}
+
+.mealSection .valueLabel {
+    color: #ffd457;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 1);
+    text-align: center;
+    white-space: nowrap;
+    font-size: 12rem;
+    top: 1.1em;
 }
 
 /*? SPORTS */
@@ -182,36 +203,61 @@ body {
     background-image: url('imgs/sportEdit.png');
 }
 .sportSection .valueLabel {
-    margin-top: 30%;
-    margin-right: 5%;
-}
-.sportSection .value{
-    transform: rotateY('50deg');
     color: #ac8b2f;
+    opacity: 70%;
+    font-size: 9rem;
+    white-space: nowrap;
+    transform: rotateY(-55deg) rotateX(40deg);
+    margin-top: 31%;
+    margin-right: 20%;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Add shadow for better blending */
+    padding: 10px;
+    border-radius: 5px;
+}
+.sportSection .value {
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Add shadow for better blending */
+    color: #ac8b2f;
+    margin-left: 10%;
 }
 
 /*? 360S */
 .section360 {
     background-image: url('imgs/360.jpg');
-    position: relative;
-    width: 100%;
-    height: 100%;
 }
 /* .overlay360 {
     background-image: url('imgs/360edit.png');
 } */
-.section360 .value, .section360 .valueLabel{
+.section360 .info-container {
+    margin-left: 10%;
+}
+.section360 .value, .section360 .valueLabel {
     color: #fdb515;
+}
+.section360 .valueLabel {
+    font-size: 17rem;
 }
 
 /*? BLOCKS */
 .blockSection {
     background-image: url('imgs/academics.jpg');
 }
+.blockSection .overlayZach360 {
+    background-image: url('imgs/academicsZachEdit.png');
+}
 .blockSection .value {
-    font-size: 60rem;
+    font-size: 53rem;
+    transform: translate(-38%)
+}
+.blockSection .valueLabel {
+    font-size: 10rem;
+    white-space: nowrap;
+    transform: translate(51%, -170%)
+    /* margin-bottom: 35%; */
+    /* bottom: 20%; */
+    /* left: 20%; */
 }
 .blockSection .value, .blockSection .valueLabel {
+    position: absolute;
     color: #ac8b2f;
 }
 
