@@ -2,15 +2,16 @@
 
 
 const graduationDate = new Date('June 22, 2024 12:00:00').getTime(); // for countdown
+const siteOpenTime = new Date().getTime();
 // const graduationDate = new Date('May 3, 2024 12:00:00').getTime(); // Use for testing
 const classesEndDate = new Date('June 12, 2024 23:59:59');
 const sportEndDate = new Date('June 6, 2024 23:59:59');
 const endDate360 = new Date('June 3, 2024 23:59:59');
-let hasScrolled = false;
+
+const arrow = document.getElementById('arrowPrompt');
+arrow.style.opacity = 1;
 
 const countdown = () => {
-
-    
     setCountdownValues();
     const now = new Date().getTime();
     const timeLeft = graduationDate - now;
@@ -40,17 +41,32 @@ function setCountdownTotals(timeLeft) {
     document.getElementById('totalSeconds').innerHTML = Math.floor(timeLeft / (1000)) + " Seconds Left";
 }
 
-let lastScrollTop = 0;
-const actionElement = document.getElementById('scrollArrow');
+setTimeout(() => {
+    if ((arrow.style.opacity == 0)) {
+        arrow.style.opacity = 1;
+    }
+    console.log("ITS BEEN 5");
+}, 5000);
 
 document.addEventListener("wheel", function(event) {
-    const actionElement = document.getElementById('scrollArrow');
-    if (!hasScrolled) {
-        actionElement.classList.add('hidden');
-        hasScrolled = true;
+    if (arrow.style.opacity == 1) {
+        document.removeEventListener("wheel", event);
+        console.log("ADDING HIDDEN");
+        arrow.style.opacity = 0;
     }
 });
 
+function scrollToNext() {
+    console.log("CLICKED")
+    // Find the current and next section
+    const currentSection = document.querySelector('.section');
+    const nextSection = currentSection.nextElementSibling;
+
+    // Scroll to next section, if it exists
+    if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
 
 setInterval(countdown, 1000);
 

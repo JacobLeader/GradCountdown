@@ -17,13 +17,6 @@ body {
     flex-direction: column;
     overflow-y: hidden;
 }
-#arrowPrompt {
-    /* background-image: url('imgs/scrollPrompt.gif'); */
-    width: 100%; /* Make the image fill its container horizontally */
-    height: auto; /* Maintain the aspect ratio of the image */
-    display: block; /* Ensure proper spacing and alignment */
-    margin: 0 auto; /* Center the image horizontally */
-}
 .container {
     scroll-snap-type: y mandatory;
     overflow-x: hidden;
@@ -91,6 +84,13 @@ body {
     color:#fdb515;
     margin-top: 46%;
     text-shadow: 0 0 10px #ac8b2f, 0 0 20px #ac8b2f, 0 0 25px #ac8b2f;
+}
+#arrowPrompt {
+    pointer-events: all;
+    background-image: url('/imgs/arrow.gif');
+    background-color: transparent;
+    transform: scale(17%) translateY(250%);
+    transition: opacity 2s ease-in-out;
 }
 
 .column {
