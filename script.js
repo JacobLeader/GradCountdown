@@ -9,7 +9,7 @@ const sportEndDate = new Date('June 6, 2024 23:59:59');
 const endDate360 = new Date('June 3, 2024 23:59:59');
 
 const arrow = document.getElementById('arrowPrompt');
-arrow.style.opacity = 1;
+arrow.style.opacity = 0;
 
 const countdown = () => {
     setCountdownValues();
