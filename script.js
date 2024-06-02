@@ -152,7 +152,7 @@ function getSportsLeft(sportDayCounts, currentDay, now) {
 
     const weekDayTime = { startTime: '15:30', endTime: '17:45' };
     const weekEndTime = { startTime: '13:00', endTime: '16:00' };
-    const noSportDate = new Date('June 3, 2024, 4:15');
+    const noSportDate = new Date('June 4, 2024, 4:15');
 
     let sportCountChanger = 0;
     if (noSportDate.getTime() > now) {
@@ -164,7 +164,7 @@ function getSportsLeft(sportDayCounts, currentDay, now) {
     } else if (currentDay == 6) { // Saturday
         return sportCountChanger + getRemainingInstances(weekEndTime) + sportDayCounts[2] + sportDayCounts[4] + sportDayCounts[6] - 1;
     }
-    return sportDayCounts[1] + sportDayCounts[3] + sportDayCounts[5];
+    return sportCountChanger + sportDayCounts[2] + sportDayCounts[4] + sportDayCounts[6];
 }
 
 function get360Left(dayCounts360, currentDay) {
