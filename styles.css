@@ -522,4 +522,8 @@ body {
         font-size: 6.5rem;
         transform: rotateY(-46deg) rotateX(63deg);
     }
+    .mealSection .credits {
+        font-size: 1.1rem;
+        transform: translate(0, 1500%);
+    }
 }
