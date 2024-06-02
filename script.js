@@ -45,8 +45,8 @@ setTimeout(() => {
     if ((arrow.style.opacity == 0)) {
         arrow.style.opacity = 1;
     }
-    console.log("ITS BEEN 5");
-}, 5000);
+    console.log("ITS BEEN 2");
+}, 2000);
 
 document.addEventListener("wheel", function(event) {
     if (arrow.style.opacity == 1) {
