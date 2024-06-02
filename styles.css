@@ -301,9 +301,7 @@ body {
 }
 
 /* Responsive styles */
-img { /* to avoid img overflow */
-    max-width: 100%;
-}
+/* Responsive for screens 1200px and below (large tablets and small desktops) */
 @media (max-width: 1200px) {
     .countdown-item span {
         font-size: 10rem;
@@ -329,8 +327,16 @@ img { /* to avoid img overflow */
     .blockSection .value {
         font-size: 40rem;
     }
+    .totalCountdownContainer {
+        font-size: 2rem;
+        gap: 3rem;
+    }
+    .countdown-container {
+        gap: 15px;
+    }
 }
 
+/* Responsive for screens 992px and below (tablets) */
 @media (max-width: 992px) {
     .countdown-item span {
         font-size: 8rem;
@@ -356,8 +362,16 @@ img { /* to avoid img overflow */
     .blockSection .value {
         font-size: 30rem;
     }
+    .totalCountdownContainer {
+        font-size: 1.8rem;
+        gap: 2.5rem;
+    }
+    .countdown-container {
+        gap: 12px;
+    }
 }
 
+/* Responsive for screens 768px and below (large phones and small tablets) */
 @media (max-width: 768px) {
     .countdown-item span {
         font-size: 6rem;
@@ -383,31 +397,114 @@ img { /* to avoid img overflow */
     .blockSection .value {
         font-size: 25rem;
     }
+    .totalCountdownContainer {
+        font-size: 1.5rem;
+        gap: 2rem;
+    }
+    .countdown-container {
+        gap: 10px;
+    }
 }
 
+/* Responsive for screens 576px and below (small phones) */
 @media (max-width: 576px) {
+    .countdown-container {
+        gap: 0px;
+        padding-left: 15%;
+    }
     .countdown-item span {
-        font-size: 4rem;
+        font-size: 3.5rem;
     }
     .countdown-item label {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
-    .value {
-        font-size: 20rem;
+    .totalCountdownContainer {
+        margin-left: 3%;
+        font-size: 1.2rem;
+        margin-top: 160%;
+        gap: 1.2rem;
     }
-    .valueLabel {
+
+    .sportSection .value {
+        margin-left: 0%;
+        font-size: 40rem;
+        margin-bottom: 10%;
+    }
+    .sportSection .valueLabel {
+        position: absolute;
+        margin-top: 180%;
+        font-size: 6.5rem;
+        transform: rotateY(-46deg) rotateX(40deg);
+    }
+    .ihSection {
+        background-position: 70%;
+    }
+    .ihSection .value {
+        font-size: 18rem;
+        margin-right: 5%;
+    }
+    .ihSection .valueLabel {
         font-size: 4rem;
     }
+    .chapelSection .info-container {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0%;
+    }
+    .chapelSection .value {
+        margin-bottom: 80%;
+    }
     .chapelSection .valueLabel {
+        position: absolute;
         font-size: 6rem;
+        margin-top: 140%;
+        text-align: center;
+    }
+    .section360 {
+        background-position: 45%;
+    }
+    .section360 .info-container {
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .section360 .value {
+        margin-bottom: 100%;
+    }
+
+    .section360 .valueLabel {
+        position: absolute;
+        margin-top: 150%;
+        font-size: 8rem;
+        text-align: center;
+    }
+    .blockSection {
+        background-position: 90%;
+    }
+    .blockSection .overlay {
+        display: none;
+    }
+    .blockSection .value {
+        position: absolute;
+        font-size: 20rem;
+        transform: translate(0, -30%);
+        text-shadow: 0 0 13px #fdb515; /* Glow */
+    }
+    .blockSection .valueLabel {
+        position: absolute;
+        font-size: 5rem;
+        transform: translate(0, 40%);
+        text-shadow: 0 0 13px #fdb515; /* Glow */
+    }
+    .mealSection .value {
+        font-size: 25rem;
     }
     .mealSection .valueLabel {
         font-size: 5rem;
     }
-    .section360 .valueLabel {
-        font-size: 8rem;
-    }
-    .blockSection .value {
-        font-size: 20rem;
+    .mealSection .credits {
+        font-size: 1.2rem;
+        color: black;
+        transform: translate(0, 1900%);
     }
 }
