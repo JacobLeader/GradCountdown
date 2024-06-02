@@ -424,7 +424,6 @@ body {
         margin-top: 160%;
         gap: 1.2rem;
     }
-
     .sportSection .value {
         margin-left: 0%;
         font-size: 40rem;
@@ -434,7 +433,7 @@ body {
         position: absolute;
         margin-top: 180%;
         font-size: 6.5rem;
-        transform: rotateY(-46deg) rotateX(40deg);
+        transform: rotateY(-46deg) rotateX(63deg);
     }
     .ihSection {
         background-position: 70%;
@@ -506,5 +505,21 @@ body {
         font-size: 1.2rem;
         color: black;
         transform: translate(0, 1900%);
+    }
+}
+
+@media (max-width: 380px) {
+    .sportSection .info-container {
+        margin-bottom: 30%;
+    }
+    .sportSection .value {
+        font-size: 40rem;
+        margin-bottom: 6%;
+    }
+    .sportSection .valueLabel {
+        position: absolute;
+        margin-top: 180%;
+        font-size: 6.5rem;
+        transform: rotateY(-46deg) rotateX(63deg);
     }
 }
