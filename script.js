@@ -45,7 +45,6 @@ setTimeout(() => {
     if ((arrow.style.opacity == 0)) {
         arrow.style.opacity = 1;
     }
-    console.log("ITS BEEN 2");
 }, 2000);
 
 document.addEventListener("wheel", function(event) {
@@ -155,14 +154,14 @@ function getSportsLeft(sportDayCounts, currentDay, now) {
     const noSportDate = new Date('June 4, 2024, 4:15');
 
     let sportCountChanger = 0;
-    if (noSportDate.getTime() > now) {
-        sportCountChanger--;
-    }
+    // if (noSportDate.getTime() > now) {
+    //     sportCountChanger--;
+    // }
 
     if (currentDay == 2 || currentDay == 4) { // Tue, Thur
-        return sportCountChanger + getRemainingInstances(weekDayTime) + sportDayCounts[2] + sportDayCounts[4] + sportDayCounts[6] - 1;
+        return sportCountChanger + getRemainingInstances(weekDayTime) + sportDayCounts[2] + sportDayCounts[4] + sportDayCounts[6];
     } else if (currentDay == 6) { // Saturday
-        return sportCountChanger + getRemainingInstances(weekEndTime) + sportDayCounts[2] + sportDayCounts[4] + sportDayCounts[6] - 1;
+        return sportCountChanger + getRemainingInstances(weekEndTime) + sportDayCounts[2] + sportDayCounts[4] + sportDayCounts[6];
     }
     return sportCountChanger + sportDayCounts[2] + sportDayCounts[4] + sportDayCounts[6];
 }
